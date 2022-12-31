@@ -7,10 +7,9 @@ const port=80;
 
 const middleware =(req,res,next)=>{
 console.log("Hello Middleware")
-next();
+ next();
 }
 
-middleware();
 
 app.get('/',(req,res)=>{
     res.send("Hello world form server")

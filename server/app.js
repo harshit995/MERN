@@ -5,13 +5,17 @@ const app=express();
 const PORT=process.env.PORT
 const path=require('path')
 const bodyParser = require("body-parser")
+app.use(bodyParser.urlencoded({ extended: true }));
+
+//mongodb
 const connectDb=require('./db/conn')
 const User=require('./model/UserSchema')
 
-app.use(bodyParser.urlencoded({ extended: true }));
 
 
 
+//we link the router files
+app.use(require('./router/auth'))
 
 //Middlewares
 const middleware =(req,res,next)=>{
@@ -20,9 +24,7 @@ console.log("Hello Middleware")
 }
 
 
-app.get('/',(req,res)=>{
-    res.send("Hello world form server")
-})
+
 app.get('/about',middleware,(req,res)=>{
     console.log("about page")
     res.send("Hello about form server")

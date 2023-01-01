@@ -11,11 +11,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const connectDb=require('./db/conn')
 const User=require('./model/UserSchema')
 
+app.use(express.json());
 
 
 
 //we link the router files
 app.use(require('./router/auth'))
+
+
 
 //Middlewares
 const middleware =(req,res,next)=>{

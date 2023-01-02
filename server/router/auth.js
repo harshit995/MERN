@@ -34,6 +34,7 @@ router.post('/register',async (req,res)=>{
         return res.status(422).json({error:"fill all the fields..."})
     }
 
+
     
     // For uniqueness
 
@@ -58,15 +59,21 @@ router.post('/register',async (req,res)=>{
 
         if(userExist){
             return res.status(422).json({error :" User already Exist"});
+        }else if(password != cpassword){
+            return res.status(422).json({error:"password are not matching.."})
+        }else{
+
+            const user =new User({name,email,phone,work,password,cpassword});
+    
+            // call hasing passwords bcrypt middleware here
+            
+            const userRegister=await user.save();
+    
+            if(userRegister){
+                res.status(201).json({message:"User created Successfully"});
+            }
         }
 
-        const user =new User({name,email,phone,work,password,cpassword});
-
-        const userRegister=await user.save();
-
-        if(userRegister){
-            res.status(201).json({message:"User created Successfully"});
-        }
     } catch (error) {
         console.log(err);    
     }
@@ -93,9 +100,9 @@ try {
     if(!userLogin){
         res.json({error:"invaild details.."})
     }else{
-        res.json({message:"sigin successfully..."})
+        res.json({message:"signin successfully..."})
     }
-    
+
     console.log(userLogin);
     
 } catch (err) {

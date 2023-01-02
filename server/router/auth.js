@@ -1,7 +1,8 @@
+const jwt =require('jsonwebtoken')
 const express=require("express");
 const router=express.Router();
 require("dotenv").config();
-
+const bcrypt=require('bcryptjs')
 
 const User=require("../model/UserSchema")
 const connectDb=require("../db/conn");
@@ -90,6 +91,7 @@ router.post('/register',async (req,res)=>{
 //login route
 router.post('/signin',async (req,res)=>{
 try {
+    let token;
     const {email,password} =req.body;
     if(!email || !password){
         return res.status(400).json({error:"please filled the data.."})
@@ -97,13 +99,29 @@ try {
 
     const userLogin=await User.findOne({email:email});
 
-    if(!userLogin){
-        res.json({error:"invaild details.."})
-    }else{
-        res.json({message:"signin successfully..."})
-    }
+    if(userLogin){
+        const isMatch = await bcrypt.compare(password,userLogin.password);
 
-    console.log(userLogin);
+        //to generate JWT TOKEN 
+        token =  await userLogin.generateAuthToken(); 
+        console.log(token)
+
+        res.cookie("jwtoken",token ,{
+            expires:new Date(Date.now() + 25892000000),
+            httpOnly:true
+        })
+
+        if(!isMatch){
+            res.json({error:"invaild details.."})
+        }else{
+            res.json({message:"signin successfully..."})
+        }
+    
+    }else{
+        return res.status(400).json({error:"invaild details.."})
+    }
+   
+    // console.log(userLogin);
     
 } catch (err) {
     console.log(err);

@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 const Signup = () => {
   return (
     <>
-      <section className="container">
+      <section className="container containerss">
       <div className="cont1">
       <h1>Signup</h1>
         <form className='register-form' id='register-form'>

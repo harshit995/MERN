@@ -7,8 +7,8 @@ const Contact = () => {
   return (
     <>
       <div className="contact_info ">
-        <div className="container-fluid divs">
-          <div className="row">
+        <div className="container-fluid container-fluidss divs">
+          <div className="row rowss">
             <div className="col-lg-10 offset-lg-1">
               <div className="contact_info_item d-flex justify-content-start align-items-center">
               <i class="fa-solid fa-phone"></i>
@@ -23,7 +23,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          <div className="row">
+          <div className="row rowss">
             <div className="col-lg-10 offset-lg-1">
               <div className="contact_info_item d-flex justify-content-start align-items-center">
               <i class="fa-solid fa-phone"></i>
@@ -38,7 +38,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          <div className="row">
+          <div className="row rowss">
             <div className="col-lg-10 offset-lg-1">
               <div className="contact_info_item d-flex justify-content-start align-items-center">
               <i class="fa-solid fa-phone"></i>
@@ -58,8 +58,8 @@ const Contact = () => {
 
 
       <div className="contact_form">
-        <div className="container">
-          <div className="row" style={{width:"90%"}}>
+        <div className="container containerss">
+          <div className="row rowss" style={{width:"90%"}}>
             <div className="col-lg-10 offset-lg-1">
               <div className="containers py-5">
                 <div className="contact_form_title" >

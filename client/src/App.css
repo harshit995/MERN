@@ -37,7 +37,7 @@
   }
 }
 
-.container{
+.containerss{
   margin-top: 30px !important;
     display: flex !important;
     flex-direction: row !important;
@@ -52,12 +52,12 @@
   justify-content: center;
   align-items: center;
 }
-.container-fluid{
+.container-fluidss{
   display: flex !important;
     justify-content: space-evenly !important;
     align-items: center !important;
 }
-.row{
+.rowss{
   width: 30%;
     border: 2px solid black
 }

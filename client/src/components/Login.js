@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 const Login = () => {
   return (
     <>
- <section className="container">
+ <section className="container containerss">
  <div className="cont2">
         <img src={login} alt="login" />
         <NavLink to='/signup' className='login-image-link' >Create an Account</NavLink>

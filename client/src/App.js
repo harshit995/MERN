@@ -1,7 +1,8 @@
 import React from 'react'
-import { BrowserRouter ,  Route ,Routes } from 'react-router-dom';
-import Home from './components/About';
+import "./App.css"
+import {   Route ,Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import Home from './components/Home';
 import Contact from './components/Contact';
 import About from './components/About';
 import Login from './components/Login';
@@ -13,25 +14,14 @@ const App = () => {
     
     <Navbar />
 
-    <Route exact path='/'>
-    <Home />
-    </Route>
-
-    <Route path='/contact'>
-    <Contact />
-    </Route>
-
-    <Route path='/about'>
-    <About />
-    </Route>
-
-    <Route path='/login'>
-    <Login />
-    </Route>
-
-    <Route path='/signup'>
-    <Signup />
-    </Route>
+    <Routes>
+          <Route exact path="/" element={<Home /> }/>
+          <Route exact path="/about" element={<About />}  />
+          <Route exact path="/contact" element={<Contact />}  />
+          <Route exact path="/login" element={<Login />}  />
+          <Route exact path="/signup" element={<Signup />}  />
+        
+    </Routes>
 
    </>
   )

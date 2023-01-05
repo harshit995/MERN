@@ -34,7 +34,7 @@ const Signup = () => {
             <label htmlFor='cpassword' className="form-label">Confirm Password</label>
             <input type="password" className="form-control" name='cpassword' id="cpassword" autoComplete='off' />
           </div>
-          <button type="submit" name='signup' id='signup' className="btn btn-primary">Submit</button>
+          <button type="submit" name='signup' id='signup' className="btn btn-primary">Register</button>
         </form>
       </div>
       <div className="cont2">

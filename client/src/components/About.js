@@ -1,11 +1,11 @@
 import React from 'react'
+import pic from "../images/OQUN8498.JPG"
 
 const About = () => {
   return (
-    <div>
-        <p>Welcome</p>
-        <h1>We are The About Page </h1>
-    </div>
+    <>
+        
+    </>
   )
 }
 

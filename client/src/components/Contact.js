@@ -6,8 +6,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 const Contact = () => {
   return (
     <>
-      <div className="contact_info">
-        <div className="container-fluid">
+      <div className="contact_info ">
+        <div className="container-fluid divs">
           <div className="row">
             <div className="col-lg-10 offset-lg-1">
               <div className="contact_info_item d-flex justify-content-start align-items-center">
@@ -76,7 +76,7 @@ const Contact = () => {
               <div className="contact_form_text " style={{margin:"17px 5px"}}>
                 <textarea className="text_field contact_form_message" style={{width:"100%"}} placeholder='Message' cols="30" rows="10"></textarea>
               </div>
-              <div className="contact_form_button">
+              <div className="contact_form_button ">
               <button type="submit"  className="btn btn-primary">Send Message</button>
               </div>
                 </form>

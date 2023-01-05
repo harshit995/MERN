@@ -65,3 +65,25 @@
 .fa-phone{
   padding: 0px 16px;
 }
+
+@media only screen and  (max-width:750px) {
+  .divs { 
+    display: flex !important;
+    justify-content: space-evenly !important;
+    align-items: center !important;
+    flex-direction: column !important;
+  }
+}
+
+@media only screen and  (max-width:750px) {
+  .row { 
+    width: 70%;
+  }
+}
+
+.home-page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh !important;
+}

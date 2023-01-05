@@ -27,7 +27,6 @@ console.log("Hello Middleware")
 }
 
 
-
 app.get('/about',middleware,(req,res)=>{
     console.log("about page")
     res.send("Hello about form server")

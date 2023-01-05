@@ -7,6 +7,8 @@ import Contact from './components/Contact';
 import About from './components/About';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import ErrorPage from './components/Errorpage';
+
 
 const App = () => {
   return (
@@ -16,10 +18,11 @@ const App = () => {
 
     <Routes>
           <Route exact path="/" element={<Home /> }/>
-          <Route exact path="/about" element={<About />}  />
-          <Route exact path="/contact" element={<Contact />}  />
-          <Route exact path="/login" element={<Login />}  />
-          <Route exact path="/signup" element={<Signup />}  />
+          <Route  path="/about" element={<About />}  />
+          <Route  path="/contact" element={<Contact />}  />
+          <Route  path="/login" element={<Login />}  />
+          <Route  path="/signup" element={<Signup />}  />
+          <Route path='*' element={<ErrorPage />}  />
         
     </Routes>
 

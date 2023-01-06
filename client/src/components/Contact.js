@@ -65,7 +65,7 @@ const Contact = () => {
                 <div className="contact_form_title" >
                   <h2> Get in touch</h2>
                 </div>
-                <form action=" " id='contact_form' style={{margin:"14px 0px"}}>
+                <form action="" id='contact_form' style={{margin:"14px 0px"}}>
             <div className="contact_form_name d-flex justify-content-between align-items-between">
             <input type="text" className="form-control " style={{margin:"0px 6px"}} name='name' id="contact_form_name" autoComplete='off' placeholder='Enter your name'  required='true' />
 

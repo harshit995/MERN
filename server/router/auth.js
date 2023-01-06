@@ -112,7 +112,7 @@ try {
         })
 
         if(!isMatch){
-            res.json({error:"invaild details.."})
+            res.status(400).json({error:"invaild details.."})
         }else{
             res.json({message:"signin successfully..."})
         }

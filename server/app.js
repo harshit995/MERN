@@ -1,12 +1,14 @@
 require('dotenv').config()
 const mongoose=require('mongoose');
 const express=require('express');
+const cookieParser = require('cookie-parser')
 const app=express();
 const PORT=process.env.PORT
 const path=require('path')
 const bodyParser = require("body-parser")
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(cookieParser())
 //mongodb
 const connectDb=require('./db/conn')
 const User=require('./model/UserSchema')
@@ -21,16 +23,18 @@ app.use(require('./router/auth'))
 
 
 //Middlewares
-const middleware =(req,res,next)=>{
-console.log("Hello Middleware")
- next();
-}
+// const middleware =(req,res,next)=>{
+// console.log("Hello Middleware")
+//  next();
+// }
 
 
-app.get('/about',middleware,(req,res)=>{
-    console.log("about page")
-    res.send("Hello about form server")
-})
+// app.get('/about',middleware,(req,res)=>{
+//     console.log("about page")
+//     res.send("Hello about form server")
+// })
+
+
 app.get('/contact',(req,res)=>{
     res.send("Hello contact form server")
 })

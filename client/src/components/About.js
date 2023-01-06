@@ -1,19 +1,54 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 // import { a } from 'react-router-dom'
 import pic from "../images/OQUN8498.JPG"
+import { useNavigate } from 'react-router-dom';
+import aboutpic from "../images/profile-img.jpg"
 
 const About = () => {
+  const navigate=useNavigate();
+  const[userData,setUserData]=useState({});
+
+const callAboutPage = async ()=>{
+  try {
+    const res= await fetch('/about',{
+      method:"GET",
+      headers:{
+        Accept:"application/json",
+        "Content-Type":"application/json"
+      },
+      credentials:"include"
+    })
+
+    const data=await res.json();
+    console.log(data);
+    setUserData(data);
+
+    if(!res.status===200){
+      const error =new Error(res.error)
+      throw error;
+    }
+
+  } catch (error) {
+    console.log(error)
+    navigate('/login')
+  }
+}
+
+  useEffect(() => {
+    callAboutPage();
+  },[])
+  
   return (
     <>
       <div className="container ">
-        <form action="" >
+        <form method='GET'>
           <div className="row mt-4">
             <div className="col-md-4">
-              <img src={pic} alt="pic" style={{ height: "35vh" }} />
+              <img src={userData.name==="Harshit" ? pic :aboutpic} alt="pic" style={{ height: "35vh" }} />
             </div>
             <div className="col-md-6">
               <div className="profile-head">
-                <h5>Harshit Gupta</h5>
+                <h5>{userData.name}</h5>
                 <h6>Web Developer</h6>
                 <p className='profile-rating mt-3 mb-5'> Rating:<span>8/10</span></p>
 
@@ -65,7 +100,7 @@ const About = () => {
                       <label>Name</label>
                     </div>
                     <div className="col-md-6">
-                      <p>Harshit Gupta</p>
+                      <p>{userData.name}</p>
                     </div>
                   </div>
                   <div className="row">
@@ -73,7 +108,7 @@ const About = () => {
                       <label>Email</label>
                     </div>
                     <div className="col-md-6">
-                      <p>xyz@gmail.com</p>
+                      <p>{userData.email}</p>
                     </div>
                   </div>
                   <div className="row">

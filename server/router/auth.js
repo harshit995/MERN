@@ -3,6 +3,7 @@ const express=require("express");
 const router=express.Router();
 require("dotenv").config();
 const bcrypt=require('bcryptjs')
+const Authenticate=require("../middleware/authenticate")
 
 const User=require("../model/UserSchema")
 const connectDb=require("../db/conn");
@@ -101,7 +102,9 @@ try {
 
     if(userLogin){
         const isMatch = await bcrypt.compare(password,userLogin.password);
-
+        if(!isMatch){
+            res.status(400).json({error:"invaild details.."})
+        }else{
         //to generate JWT TOKEN 
         token =  await userLogin.generateAuthToken(); 
         console.log(token)
@@ -111,11 +114,8 @@ try {
             httpOnly:true
         })
 
-        if(!isMatch){
-            res.status(400).json({error:"invaild details.."})
-        }else{
-            res.json({message:"signin successfully..."})
-        }
+        res.status(200).json({message:"user Signin successfully..."})
+    }
     
     }else{
         return res.status(400).json({error:"invaild details.."})
@@ -128,5 +128,12 @@ try {
 }
 })
 
+
+//about page middleware
+
+router.get('/about',Authenticate,(req,res)=>{
+    console.log("about page")
+    res.send(req.rootUser);
+})
 
 module.exports= router;

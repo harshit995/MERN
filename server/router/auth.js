@@ -65,7 +65,7 @@ router.post('/register',async (req,res)=>{
             return res.status(422).json({error:"password are not matching.."})
         }else{
 
-            const user =new User({name,email,phone,work,password,cpassword});
+            const user =new User({name,email,phone,work,password,cpassword}); //name:name , email:email
     
             // call hasing passwords bcrypt middleware here
             

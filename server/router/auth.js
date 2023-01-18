@@ -132,7 +132,12 @@ try {
 //about page middleware
 
 router.get('/about',Authenticate,(req,res)=>{
-    console.log("about page")
+    // console.log("about page")
+    res.send(req.rootUser);
+})
+
+router.get('/getdata',Authenticate,(req,res)=>{
+    // console.log("about page")
     res.send(req.rootUser);
 })
 

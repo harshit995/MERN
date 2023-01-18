@@ -30,7 +30,7 @@ const res =await fetch("/register",{
     "Content-Type":"application/json"
   },
   body:JSON.stringify({
-    name,email,work,phone,password,cpassword
+    name,email,work,phone,password,cpassword //name:name
   })
 });
    const data=await res.json();

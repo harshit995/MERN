@@ -44,12 +44,12 @@ const callAboutPage = async ()=>{
         <form method='GET'>
           <div className="row mt-4">
             <div className="col-md-4">
-              <img src={userData.name==="Harshit" ? pic :aboutpic} alt="pic" style={{ height: "35vh" }} />
+              <img src={userData.name==="harshit" ? pic :aboutpic} alt="pic" style={{ height: "35vh" }} />
             </div>
             <div className="col-md-6">
               <div className="profile-head">
                 <h5>{userData.name}</h5>
-                <h6>Web Developer</h6>
+                <h6>{userData.work}</h6>
                 <p className='profile-rating mt-3 mb-5'> Rating:<span>8/10</span></p>
 
 
@@ -92,7 +92,7 @@ const callAboutPage = async ()=>{
                       <label>User Id</label>
                     </div>
                     <div className="col-md-6">
-                      <p>1234567890</p>
+                      <p>{userData._id}</p>
                     </div>
                   </div>
                   <div className="row">
@@ -113,18 +113,18 @@ const callAboutPage = async ()=>{
                   </div>
                   <div className="row">
                     <div className="col-md-6">
-                      <label>User Id</label>
+                      <label>Phone</label>
                     </div>
                     <div className="col-md-6">
-                      <p>1234567890</p>
+                      <p>{userData.phone}</p>
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-md-6">
-                      <label>User Id</label>
+                      <label>Work</label>
                     </div>
                     <div className="col-md-6">
-                      <p>1234567890</p>
+                      <p>{userData.work}</p>
                     </div>
 
                   </div>

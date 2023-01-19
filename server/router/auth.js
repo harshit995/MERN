@@ -141,25 +141,25 @@ router.get('/getdata',Authenticate,(req,res)=>{
     res.send(req.rootUser);
 })
 
-router.get('/contact',Authenticate, async (req,res)=>{
+router.post('/contact',Authenticate, async (req,res)=>{
 try {
     
-    const{name,email,phone,message}=req.body
-
-    if(!name || !email || !phone || !message){
+    const{ name, email, phone, message }=req.body;
+ console.log(req.body)
+    if( !name || !email || !phone || !message){
+        console.log("error in formm...")
         return res.json({error:"please fill the form"});
-
     }
 
-    const userContact=await User.findOne({_id:req.userId});
+    const userContact=await User.findOne({_id:req.userID});
 
     if(userContact){
-        const userMessage=await userContact.addMessage(name,email,phone,message);
+        const userMessage=await userContact.addMessages(name,email,phone,message);
 
-        await userMessage.save();
+        await userContact.save();
 
         res.status(201).json({message:"User contacted Successfully...."})
-        
+
     }
 
 } catch (error) {

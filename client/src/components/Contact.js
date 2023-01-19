@@ -18,7 +18,7 @@ const Contact = () => {
   
       const data=await res.json();
       console.log(data);
-      setUserData({...userData, name:data.name ,email:data.email,phone:data.phone,message:data.message});
+      setUserData({...userData, name:data.name ,email:data.email,phone:data.phone});
   
       if(!res.status===200){
         const error =new Error(res.error)
@@ -37,18 +37,18 @@ const Contact = () => {
       UserContact();
     },[])
 
-    let name,value;
-const handleInputs= (e)=>{
- name=e.target.name;
- value=e.target.value;
+    
+const handleInputs = (e)=>{
+ const name=e.target.name;
+ const value=e.target.value;
 
  setUserData({...userData,[name]:value})
 }
 
-const contactForm= async(e)=>{
+const contactForm= async (e)=>{
   e.preventDefault();
 
-  const{name,email,phone,message}=userData;
+  const{ name, email, phone, message }=userData;
 
   const res=await fetch('/contact',{
     method:"POST",
@@ -65,8 +65,8 @@ const contactForm= async(e)=>{
   if(!data){
     console.log("Message not send");
   } else{
-    alert("Message Send");
-    setUserData({...userData,message:""})
+    window.alert("Message Send");
+    setUserData({...userData,message:""});
   }
 
 }

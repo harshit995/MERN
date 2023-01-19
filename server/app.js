@@ -41,9 +41,7 @@ app.use(require('./router/auth'))
 app.get('/signin',(req,res)=>{
     res.send("Hello signin form server")
 })
-app.get('/signup',(req,res)=>{
-    res.send("Hello signup form server")
-})
+
 
 const start = async ()=>{
     try {

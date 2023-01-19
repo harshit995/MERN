@@ -80,7 +80,7 @@ router.post('/register',async (req,res)=>{
         console.log(err);    
     }
     
-
+    
     //to Get data
     // console.log(name);
     // console.log(email);
@@ -139,6 +139,32 @@ router.get('/about',Authenticate,(req,res)=>{
 router.get('/getdata',Authenticate,(req,res)=>{
     // console.log("about page")
     res.send(req.rootUser);
+})
+
+router.get('/contact',Authenticate, async (req,res)=>{
+try {
+    
+    const{name,email,phone,message}=req.body
+
+    if(!name || !email || !phone || !message){
+        return res.json({error:"please fill the form"});
+
+    }
+
+    const userContact=await User.findOne({_id:req.userId});
+
+    if(userContact){
+        const userMessage=await userContact.addMessage(name,email,phone,message);
+
+        await userMessage.save();
+
+        res.status(201).json({message:"User contacted Successfully...."})
+        
+    }
+
+} catch (error) {
+    console.log(error)
+}
 })
 
 module.exports= router;
